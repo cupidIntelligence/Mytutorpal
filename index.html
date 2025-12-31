@@ -328,26 +328,13 @@
 
       <aside class="contact" id="contact" aria-labelledby="contact-heading">
         <h2 id="contact-heading" style="margin-top:0;color:#052022;">Book a session</h2>
-        <form onsubmit="event.preventDefault(); alert('Thanks — request sent (demo).');" aria-label="Booking form">
-          <label for="name">Full name</label>
-          <input id="name" name="name" type="text" placeholder="Your full name" required>
+       <form action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="2941fad5-dc59-4a58-be14-ca81b3d57d84">
+  <input type="text" name="name" required>
+  <input type="email" name="email" required>
+  <textarea name="message" required></textarea>
+  <button type="submit">Submit</button>
 
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required>
-
-          <label for="subject">Subject</label>
-          <select id="subject" name="subject">
-            <option>Mathematics — Algebra / Calculus etc</option>
-            <option>Physics</option>
-            <option>Chemistry</option>
-            <option>Study skills & exam prep</option>
-          </select>
-
-          <label for="message">Preferred times / message</label>
-          <textarea id="message" name="message" rows="4" placeholder="Tell Sbongakonke when you're available"></textarea>
-
-          <button type="submit">Request booking</button>
-        </form>
       </aside>
     </section>
 

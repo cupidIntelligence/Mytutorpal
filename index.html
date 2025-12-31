@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MyTutorPal — Sbongakonke Dladla</title>
+  <style>
+    :root{
+      --accent:#07b3b3;
+      --dark:#0f1720;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.06);
+      --max-width:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #07121a 0%, #0b2430 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    .container{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:28px;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:18px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo{
+      width:54px;
+      height:54px;
+      border-radius:10px;
+      overflow:hidden;
+      display:inline-block;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .brand h1{
+      font-size:18px;
+      margin:0;
+      letter-spacing:0.2px;
+    }
+    .brand p{ margin:0; color:var(--muted); font-size:13px; }
+
+    nav a{
+      color:#cfeff0;
+      text-decoration:none;
+      margin-left:18px;
+      font-weight:600;
+      font-size:14px;
+    }
+    nav a.button{
+      background:var(--accent);
+      color:#052022;
+      padding:8px 12px;
+      border-radius:8px;
+      margin-left:14px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:24px;
+      align-items:stretch;
+      margin-bottom:28px;
+    }
+    @media (max-width:920px){
+      .hero{ grid-template-columns:1fr; }
+    }
+
+    .hero-left{
+      background: linear-gradient(90deg, rgba(7,179,179,0.06), rgba(7,179,179,0.02));
+      padding:28px;
+      border-radius:14px;
+      position:relative;
+      overflow:hidden;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .hero-left h2{ margin:0 0 8px 0; font-size:28px; color:#fff; }
+    .hero-left p.lead{ margin:0 0 18px 0; color:var(--muted); font-size:15px; }
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .cta{
+      background:var(--accent);
+      color:#052022;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:700;
+      text-decoration:none;
+    }
+    .secondary{
+      background:transparent;
+      color:#d7f7f7;
+      border:1px solid rgba(255,255,255,0.06);
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+    }
+
+    .hero-left .bio{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .tutor-photo{
+      width:72px;
+      height:72px;
+      border-radius:12px;
+      overflow:hidden;
+      flex-shrink:0;
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    .bio .name{ font-weight:700; margin:0 0 4px 0;}
+    .bio .role{ color:var(--muted); font-size:13px; margin:0; }
+
+    .hero-right{
+      border-radius:12px;
+      overflow:hidden;
+      min-height:240px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#071621;
+    }
+    .hero-right img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-bottom:26px;
+    }
+    @media (max-width:920px){
+      .services{ grid-template-columns:repeat(1,1fr); }
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      padding:14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 8px 18px rgba(2,6,23,0.45);
+    }
+    .card img{
+      width:100%;
+      height:140px;
+      object-fit:cover;
+      border-radius:8px;
+      display:block;
+      margin-bottom:10px;
+    }
+    .card h3{ margin:0 0 6px 0; font-size:16px; color:#fff; }
+    .card p{ margin:0; color:var(--muted); font-size:14px; }
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:20px;
+      margin-bottom:32px;
+    }
+    @media (max-width:920px){
+      .split{ grid-template-columns:1fr; }
+    }
+    .about{
+      background:transparent;
+      padding:18px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .about h2{ margin-top:0; color:#fff; }
+    .about p{ color:var(--muted); }
+
+    .contact{
+      background: linear-gradient(180deg, rgba(7,179,179,0.06), rgba(255,255,255,0.02));
+      padding:16px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    .contact label{ display:block; margin-bottom:6px; color:#dffafb; font-size:13px; }
+    .contact input, .contact textarea, .contact select{
+      width:100%;
+      padding:10px;
+      border-radius:8px;
+      border: none;
+      background: rgba(255,255,255,0.03);
+      color:#eaf9f9;
+      margin-bottom:10px;
+      outline: none;
+    }
+    .contact button{
+      background:var(--dark);
+      color:#fff;
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.04);
+      cursor:pointer;
+      width:100%;
+      font-weight:700;
+    }
+
+    footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      color:var(--muted);
+      font-size:13px;
+      padding:18px 0;
+      border-top:1px solid rgba(255,255,255,0.03);
+    }
+    .socials a{ color:var(--muted); margin-left:12px; text-decoration:none; }
+
+ 
+    .pill{ display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,0.03); color:var(--muted); font-weight:700; font-size:13px; }
+    .price{ font-weight:800; color:#fff; font-size:20px; }
+    .center{ text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="#">
+        <figure class="logo" aria-hidden="true">
+        
+          <img src="logo.jpeg" alt="MyTutorPal logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </figure>
+        <div>
+          <h1>MyTutorPal</h1>
+          <p>Sbongakonke Dladla — Personal Tutor</p>
+        </div>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+  
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <p class="pill">Trusted Tutor • Maths & Science</p>
+        <h2 id="hero-title">Welcome to MyTutorPal — Learn smarter with Sbongakonke</h2>
+        <p class="lead">One-on-one tutoring tailored to your needs. Clear explanations, patient guidance, and practical problem-solving for learners of all ages.</p>
+
+        <div class="cta-row" role="group" aria-label="Primary CTAs">
+          <a href="#contact" class="cta">Book a free trial</a>
+          <a href="#services" class="secondary">View Services & Rates</a>
+        </div>
+
+        <div class="bio">
+          <div class="tutor-photo" aria-hidden="true">
+            <img src="logo.jpeg" alt="Decorative tutor image" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div>
+            <p class="name">Sbongakonke Dladla</p>
+            <p class="role">High school tutor — Maths, Physics, Chemistry</p>
+            <p style="margin-top:8px;color:var(--muted);font-size:13px;"5+ years tutoring experience • Exam prep • Concept mastery</p>
+          </div>
+        </div>
+      </div>
+
+  
+    </section>
+
+    <section id="services" class="services" aria-label="Services offered">
+      <article class="card">
+        <img src="IMG_8668.JPG" alt="chalkboard of equations" />
+        <h3>Mathematics — Pure & Applied</h3>
+        <p>Algebra, calculus, statistics, and problem-solving strategies. Tailored lessons and worked examples to build confidence.</p>
+      </article>
+
+      <article class="card">
+        <img src="IMG_8669.jpg" alt="science and tech imagery" />
+        <h3>Physics & Chemistry</h3>
+        <p>Mechanics, electricity, thermodynamics and core chemistry concepts with clear derivations and exam-style practice.</p>
+      </article>
+
+      <article class="card">
+        <img src="IMG_8672.png" alt="creative learning and thinking illustration" />
+        <h3>Study Skills & Exam Prep</h3>
+        <p>Time management, problem decomposition, past-paper practice and effective revision plans for any level.</p>
+      </article>
+    </section>
+
+    <section class="split">
+      <div class="about" id="about">
+        <h2>About Sbonga</h2>
+        <p>Sbongakonke Dladla is a dedicated tutor specialising in mathematics, physics and chemistry. With a calm, structured teaching style and more than a decade of tutoring experience, Sbongakonke helps students move from confusion to clarity using simple step-by-step explanations and plenty of practice.</p>
+
+        <h3 style="margin-top:14px;color:#fff;">How lessons work</h3>
+        <ul style="color:var(--muted);padding-left:18px;">
+          <li>Initial assessment & learning plan</li>
+          <li>Short concept explanations + guided practice</li>
+          <li>Homework & exam-style questions</li>
+          <li>Progress tracking and feedback</li>
+        </ul>
+
+        <div style="margin-top:12px;">
+          <p style="margin:0;color:var(--muted);">From</p>
+          <p class="price">R120 / 120 min monthly </p>
+        </div>
+      </div>
+
+      <aside class="contact" id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" style="margin-top:0;color:#052022;">Book a session</h2>
+        <form onsubmit="event.preventDefault(); alert('Thanks — request sent (demo).');" aria-label="Booking form">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" placeholder="Your full name" required>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option>Mathematics — Algebra / Calculus etc</option>
+            <option>Physics</option>
+            <option>Chemistry</option>
+            <option>Study skills & exam prep</option>
+          </select>
+
+          <label for="message">Preferred times / message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell Sbongakonke when you're available"></textarea>
+
+          <button type="submit">Request booking</button>
+        </form>
+      </aside>
+    </section>
+
+    <section style="margin-bottom:28px;">
+      <div class="card" style="padding:18px;">
+        <h3 style="margin-top:0;color:#fff;">What learners say</h3>
+        <p style="color:var(--muted);margin:8px 0 0 0;">“Sbonga helped me go from failing to top of my class — explanations are clear and patient.” — A satisfied student</p>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <strong>MyTutorPal</strong> • Sbongakonke Dladla
+        <div style="color:var(--muted);font-size:13px;margin-top:6px;">Based in South Africa • Online & in-person lessons</div>
+      </div>
+
+      <div class="socials">
+        <span style="color:var(--muted)">Connect:</span>
+        <a href="mailto: sibongakonkedladla972@gmail.com" title="Email Sbongakonke">Email</a><br/>
+<p>email to: sibongakonkedladla972@gmail.com" </p>
+    <p>contacts: 0716986620 </p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
